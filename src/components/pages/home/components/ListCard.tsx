@@ -159,7 +159,7 @@ export const ListCard = () => {
             <Row gutter={[16, 24]} style={{ marginTop: '50px', marginLeft: '10px' }}>
                 {
                     listData.map(({ title, description, id }) => (
-                        <Col className="gutter-row" span={6}>
+                        <Col className="gutter-row" span={6} key={id}>
                             <CardForm key={id} title={title} description={description} />
                         </Col>
                     ))}

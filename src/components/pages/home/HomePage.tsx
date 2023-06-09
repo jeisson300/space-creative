@@ -13,7 +13,7 @@ export interface Idea {
     description: string
 }
 
-export const HomePage = () => {
+export const HomePage: React.FC = (): JSX.Element => {
     const { Header, Content } = Layout;
     const { TextArea } = Input;
     const [isModalOpen, setIsModalOpen] = useState(false);

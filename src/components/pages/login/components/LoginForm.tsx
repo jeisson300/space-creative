@@ -11,11 +11,11 @@ export const LoginForm: React.FC = () => {
     const onHandleFrom = (values: LoginForm): void => {
         console.log(values)
     }
-
+    // josethelea@hotmail.com  cc01
     const formik = useFormik({
         initialValues: {
-            email: '',
-            password: ''
+            email: 'josethelea@hotmail.com',
+            password: 'cc01'
         },
         onSubmit: (values: LoginForm, { resetForm }) => {
             onHandleFrom(values);
