@@ -1,4 +1,4 @@
-import { Card, Input, Button } from 'antd'
+import { Card, Input, Button, Row, Col } from 'antd'
 import { useFormik } from "formik";
 import { Idea } from '../HomePage';
 import { motion } from "framer-motion";
@@ -6,7 +6,7 @@ import {
     FormOutlined,
     DeleteOutlined
 } from '@ant-design/icons';
-
+import { useRef } from 'react';
 export const ListCard = () => {
 
     const listData = [
@@ -20,6 +20,101 @@ export const ListCard = () => {
             "title": "example2",
             "description": "idea billion2"
         },
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        },
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        },
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        },
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        },
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
+        ,
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
+        ,
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
+        ,
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
+        ,
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
+        ,
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
+        ,
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        },
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
+        ,
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
+        ,
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        },
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
+        ,
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
+        ,
+        {
+            "id": 2,
+            "title": "example2",
+            "description": "idea billion2"
+        }
     ]
 
     const { TextArea } = Input;
@@ -39,9 +134,12 @@ export const ListCard = () => {
         const handleUpdate = (values: Idea) => {
             console.log(values)
         }
+
+        const limitMove = useRef(null);
         return (
-            <div>
-                <motion.div drag >
+            <div >
+                <motion.div className='limitMove' ref={limitMove} />
+                <motion.div drag dragConstraints={limitMove}>
                     <form onSubmit={formik.handleSubmit}>
                         <Card title={<Input type='text' bordered={false} name="title" id="title" onChange={formik.handleChange} value={formik.values.title} placeholder="title" />}
                             bordered={false}
@@ -57,11 +155,16 @@ export const ListCard = () => {
     }
 
     return (
-        <div>
-            {listData.map(({ title, description, id }) => (
-                <CardForm key={id} title={title} description={description} />
-            ))}
-        </div>
+        <div >
+            <Row gutter={[16, 24]} style={{ marginTop: '50px', marginLeft: '10px' }}>
+                {
+                    listData.map(({ title, description, id }) => (
+                        <Col className="gutter-row" span={6}>
+                            <CardForm key={id} title={title} description={description} />
+                        </Col>
+                    ))}
+            </Row>
+        </div >
     )
 }
 
